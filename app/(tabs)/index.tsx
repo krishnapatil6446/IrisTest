@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, StatusBar, Animated } from 'react-native';
+import { View, StyleSheet, StatusBar, Animated, Text } from 'react-native';
 
 export default function Index() {
   // Set up animated value for the loading bar
@@ -30,6 +30,9 @@ export default function Index() {
       {/* Make the status bar black too */}
       <StatusBar backgroundColor="black" barStyle="light-content" />
       
+      {/* Error Message */}
+      <Text style={styles.errorText}>VERSION NOT SUPPORTED</Text>
+      
       {/* Horizontal loading bar */}
       <View style={styles.loadingBarContainer}>
         <Animated.View 
@@ -50,12 +53,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  errorText: {
+    color: '#FF3B30', // iOS error red color
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    letterSpacing: 0.5,
+  },
   loadingBarContainer: {
     width: '80%',
     height: 6,
     backgroundColor: '#333', // Dark gray background for the loading bar container
     borderRadius: 3,
     overflow: 'hidden',
+    marginTop: 10,
   },
   loadingBar: {
     height: '100%',
